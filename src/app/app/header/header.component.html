@@ -1,11 +1,11 @@
 <header
-  class="w-full flex justify-between items-center bg-blue-800 sticky top-0 z-50 px-6 lg:px-20 py-6"
+  class="w-full flex justify-between items-center bg-violet-900 sticky top-0 z-50 px-6 lg:px-20 py-6"
 >
   <!-- header -->
   <div class="container mx-4 flex justify-between items-center">
     <!-- left side -->
     <div class="flex items-center">
- <a routerLink="/" class="text-white font-bold text-lg">
+    <a routerLink="/" class="text-white font-bold text-lg">
       <h1>Blog</h1>
     </a>
 
@@ -13,7 +13,7 @@
       <!-- logged in -->
       <div
         *ngIf="isLoggedIn"
-        class="space-x-2 text-zinc-200 transition-colors cursor-pointer hidden ml-2 sm:block"
+        class="space-x-2 text-gray-200 transition-colors cursor-pointer hidden ml-2 sm:block"
       >
         <a routerLink="/create" class="hover:text-white transition"> Create post </a>
         <button class="hover:text-white transition" (click)="logout()">Logout</button>
@@ -22,7 +22,7 @@
 
     <!-- not logged in -->
     <div *ngIf="!isLoggedIn" class="gap-x-4 items-center sm:flex">
-      <p class="text-zinc-300">
+      <p class="text-gray-300">
         <a class="hover:text-white transition-colors" routerLink="/auth/login"
           >Login</a
         >
@@ -37,7 +37,7 @@
           height="48"
           viewBox="0 -960 960 960"
           width="48"
-          class="fill-zinc-300 h-6 w-6 hover:fill-white transition-colors cursor-pointer outline-none"
+          class="fill-gray-300 h-6 w-6 hover:fill-white transition-colors cursor-pointer outline-none"
           routerLink="/auth/login"
         >
           <path
@@ -49,11 +49,12 @@
 
     <!-- logged in -->
     <div *ngIf="isLoggedIn" class="flex items-start sm:items-center justify-between">
-      <div class="flex justify-start flex-col mr-2">
-            <p class="text-white w-24 text-right truncate">
+      <div class="flex justify-end flex-col mr-2">
+            <p class="text-white ">
               {{ username }}
             </p>
-            <button class="text-gray-300 hover:text-white sm:hidden" (click)="logout()">Logout</button>
+            <a routerLink="/create" class="text-gray-300 hover:text-white sm:hidden transition"> Create post </a>
+            <button class="w-fit text-gray-300 hover:text-white sm:hidden" (click)="logout()">Logout</button>
           </div>
 
           <a>
@@ -69,7 +70,7 @@
   </div>
 
   <!-- create new post button -->
-  <a routerLink="/create" *ngIf="isLoggedIn">
+  <!-- <a routerLink="/create" *ngIf="isLoggedIn">
     <div
       class="fixed bottom-8 right-8 rounded-full bg-white border border-gray-300 hover:border-blue-800 transition-all h-12 w-12 cursor-pointer flex justify-center items-center"
     >
@@ -85,5 +86,5 @@
         />
       </svg>
     </div>
-  </a>
+  </a> -->
 </header>
