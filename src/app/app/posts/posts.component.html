@@ -1,0 +1,23 @@
+<div class="relative mt-8 ">
+  <h1 class="font-bold text-2xl text-gray-800 ">Posts</h1>
+  <!-- <p *ngIf="state != 'error'" class="text-sm text-gray-300">
+    list of all posts available
+  </p>
+  <p *ngIf="state == 'error'" class="text-sm text-red-500">{{ status }}</p> -->
+  <!-- <hr class="my-4" /> -->
+
+  <!-- posts -->
+  <div>
+    <!-- posts -->
+    <div class=" w-full mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 lg:grid-cols-4 lg:gap-x-6">
+      <app-post-card
+        *ngFor="let result of results"
+        [post]="result"
+        class=""
+      ></app-post-card>
+    </div>
+  </div>
+
+  <!-- loading -->
+  <app-loading *ngIf="state == 'loading'"></app-loading>
+</div>

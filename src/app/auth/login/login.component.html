@@ -1,0 +1,43 @@
+<!-- main container -->
+<div class="flex justify-center items-center w-full h-screen">
+  <!-- login card -->
+  <div
+    class="w-72 h-fit bg-white shadow-md p-4 relative rounded"
+  >
+    <p class="font-bold text-blue-800 text-2xl">Login</p>
+    <p *ngIf="state != 'error'" class="text-xs text-gray-300 mt-1">
+      enter your account info
+    </p>
+    <p *ngIf="state == 'error'" class="text-xs text-red-600 mt-1">
+      {{ status }}
+    </p>
+    <!-- <hr class="my-2 h-2" /> -->
+
+    <!-- fileds -->
+    <div class="flex flex-col gap-4 mt-4">
+      <!-- username -->
+      <app-input1
+        type="text"
+        name="username"
+        placeholder="username"
+        (change)="setUsername($event.target)"
+      ></app-input1>
+
+      <!-- password -->
+      <app-input1
+        type="password"
+        name="password"
+        placeholder="password"
+        (change)="setPassword($event.target)"
+      ></app-input1>
+
+      <!-- submit -->
+      <app-button1
+        (click)="state = 'loading'; submit()"
+        title="Login"
+      ></app-button1>
+    </div>
+
+    <app-loading *ngIf="state == 'loading'"></app-loading>
+  </div>
+</div>

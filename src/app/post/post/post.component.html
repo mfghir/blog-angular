@@ -1,0 +1,48 @@
+<!-- container -->
+<div class="mt-4 mb-4 flex justify-center min-h-screen px-4">
+  <div
+    class="container p-4 bg-white border-zinc-300 border shadow-md relative h-fit"
+  >
+    <!-- top section -->
+    <div
+      class="flex gap-4 flex-wrap border-b border-b-zinc-300 sm:border-0 sm:p-0 pb-4"
+    >
+      <!-- avatar -->
+      <div
+        class="sm:w-96 sm:h-52 w-full aspect-video shadow-sm shadow-zinc-300 border border-zinc-200 p-1 shrink-0"
+      >
+        <img [src]="post?.pic" class="w-full h-full" />
+      </div>
+
+      <!-- metadata -->
+      <div>
+        <h1 class="font-bold text-4xl text-blue-500">
+          {{ post?.title ? post?.title : "Post title" }}
+        </h1>
+        <p class="text-zinc-500 font-bold my-2">
+          {{ post?.title ? "By " + post?.title : "By Author" }}
+        </p>
+        <p class="text-sm text-zinc-500 text-justify">
+          {{
+            post?.description
+              ? post?.description
+              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in eprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          }}
+        </p>
+      </div>
+    </div>
+
+    <!-- bottom section -->
+    <p
+      class="pt-4 text-justify"
+      [innerHTML]="
+        post?.content
+          ? post?.content
+          : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in eprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in eprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in eprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      "
+    ></p>
+
+    <!-- loading -->
+    <app-loading *ngIf="state == 'loading'"></app-loading>
+  </div>
+</div>

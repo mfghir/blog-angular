@@ -1,0 +1,76 @@
+<!-- container -->
+<div class="flex justify-center min-h-screen my-8 px-6  lg:px-20">
+  <div
+    class="container h-fit p-4 mb-4 bg-white relative"
+  >
+    <h1 class="text-lg lg:text-2xl font-bold text-gray-800">Create new post</h1>
+    <p *ngIf="state != 'error'" class="text-sm text-gray-300">
+      A new post will be created with your requested parameters.
+    </p>
+    <p *ngIf="state == 'error'" class="text-sm text-red-500">
+      {{ status }}
+    </p>
+    <!-- <hr class="my-4" /> -->
+
+    <!-- inputs container -->
+    <div class="space-y-4 mt-4">
+      <!-- picture -->
+      <div class="flex gap-2-4 items-center flex-wrap">
+        <label class=" text-gray-400 w-32">Post image URL :</label>
+        <app-input1
+          name="url"
+          placeholder="enter..."
+          type="url"
+          class="grow"
+          (change)="setPic($event.target)"
+        ></app-input1>
+      </div>
+
+      <!-- title -->
+      <div class="flex gap-y-2 items-center flex-wrap">
+        <label class=" text-gray-400 w-32">Title :</label>
+        <app-input1
+          name="title"
+          placeholder="enter..."
+          type="text"
+          class="grow"
+          (change)="setTitle($event.target)"
+        ></app-input1>
+      </div>
+
+      <!-- description -->
+      <div class="flex gap-y-2 items-center flex-wrap">
+        <label class=" text-gray-400 w-32">Description :</label>
+        <app-input1
+          name="description"
+          placeholder="enter..."
+          type="text"
+          class="grow"
+          (change)="setDesc($event.target)"
+        ></app-input1>
+      </div>
+
+      <!-- Content -->
+      <div class="flex gap-y-2 items-center flex-wrap h-28">
+        <label class=" text-gray-400 w-32">Content :</label>
+        <ckeditor
+          class="grow outline-none overflow-x-scroll"
+          [editor]="Editor"
+          data=""
+          (change)="onChange($event)"
+        ></ckeditor>
+      </div>
+    </div>
+
+    <!-- create post -->
+    <div class="mt-8 w-36">
+      <app-button1
+        title="Create post"
+        (click)="state = 'loading'; submit()"
+      ></app-button1>
+    </div>
+
+    <!-- loading -->
+    <app-loading *ngIf="state == 'loading'"></app-loading>
+  </div>
+</div>

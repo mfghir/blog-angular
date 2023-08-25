@@ -1,0 +1,18 @@
+<a [href]="'#/post/' + post?._id">
+  <div
+    class="min-w-96 flex flex-col overflow-hidden cursor-pointer hover:shadow-md transition-all">
+    <!-- image -->
+    <div class="w-full h-40">
+      <img [src]="post?.pic" class="w-full h-full" />
+    </div>
+
+    <!-- metadata -->
+    <div class="p-2">
+      <p class="font-medium text-lg text-gray-800">{{ post?.title }}</p>
+      <p class="text-xs text-gray-400">{{ post?.author?.username }}</p>
+      <p class="text-sm pt-1 text-gray-600 text-justify">
+        {{ post?.description }}
+      </p>
+    </div>
+  </div>
+</a>

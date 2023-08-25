@@ -1,0 +1,43 @@
+<div class="relative w-full">
+  <!-- <h1 class="font-bold text-2xl text-blue-500">Search</h1>
+  <p class="text-sm text-zinc-500">Search by title or author</p>
+  <hr class="my-4" /> -->
+
+  <!-- inputs container -->
+  <div class="flex gap-y-4 md:gap-x-4 flex-wrap items-center">
+    <!-- <label class="text-zinc-600 font-bold w-32">Title / Author :</label> -->
+    <app-input1
+      class="grow"
+      placeholder="enter title or author"
+      type="text"
+      name="search"
+      (change)="setSearchString($event.target)"
+    ></app-input1>
+
+    <!-- submit -->
+    <div class="w-full md:w-32">
+      <app-button1
+        (click)="state = 'loading'; search()"
+        title="Search"
+      ></app-button1>
+    </div>
+  </div>
+
+
+  <!-- results -->
+  <div *ngIf="results.length">
+    <!-- <hr class="mt-4 mb-2" /> -->
+    <p class="font-bold text-gray-800 text-lg mb-2">Results :</p>
+
+    <!-- posts -->
+    <div class="flex justify-left flex-wrap gap-4">
+      <app-post-card
+        *ngFor="let result of results"
+        [post]="result"
+      ></app-post-card>
+    </div>
+  </div>
+
+  <!-- loading -->
+  <app-loading *ngIf="state == 'loading'"></app-loading>
+</div>
