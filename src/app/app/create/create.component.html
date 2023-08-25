@@ -1,7 +1,7 @@
 <!-- container -->
 <div class="flex justify-center min-h-screen my-8 px-6  lg:px-20">
   <div
-    class="container h-fit p-4 mb-4 bg-white relative"
+    class="container h-full p-4 mb-4 bg-white relative"
   >
     <h1 class="text-lg lg:text-2xl font-bold text-gray-800">Create new post</h1>
     <p *ngIf="state != 'error'" class="text-sm text-gray-300">
@@ -51,10 +51,10 @@
       </div>
 
       <!-- Content -->
-      <div class="flex gap-y-2 items-center flex-wrap h-28">
-        <label class=" text-gray-400 w-32">Content :</label>
+      <div class="flex gap-y-2 items-center flex-wrap">
+        <!-- <label class=" text-gray-400 w-32">Content :</label> -->
         <ckeditor
-          class="grow outline-none overflow-x-scroll"
+          class="grow outline-none overflow-y-scroll"
           [editor]="Editor"
           data=""
           (change)="onChange($event)"
